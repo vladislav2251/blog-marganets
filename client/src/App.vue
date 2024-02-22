@@ -12,7 +12,10 @@
      <div class="min-h-[100svh] flex flex-col">
           <Header v-if="!route.meta.hideHeader"/>
                <router-view></router-view>
+               
           <Toaster />
           <Footer />
      </div>
 </template>
+
+// dsdfsdfs
