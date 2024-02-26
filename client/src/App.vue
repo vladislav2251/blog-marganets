@@ -14,7 +14,7 @@
                <router-view></router-view>
                
           <Toaster />
-          <Footer />
+          <Footer v-if="!route.meta.hideHeader"/>
      </div>
 </template>
 

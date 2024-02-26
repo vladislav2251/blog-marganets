@@ -14,7 +14,6 @@ let userSchema = new mongoose.Schema({
           required:true,
           unique:true,
      }, 
-
      password: {
           type: String,
           required: [true, "please enter your password"],
@@ -26,10 +25,15 @@ let userSchema = new mongoose.Schema({
      },
 
      avatar: {
-          public_id: String,
-          url: String,
-     },
-
+          public_id: {
+              type: String,
+              default: ' '
+          },
+          url: {
+              type: String,
+              default: ' '
+          },
+      },
      role: {
           type: String,
           enum: ["user", "admin", "superadmin"],

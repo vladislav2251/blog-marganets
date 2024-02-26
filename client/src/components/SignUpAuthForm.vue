@@ -2,14 +2,14 @@
      import { ref } from 'vue';
      import { useRouter } from 'vue-router';
 
-     // import { useToast } from '@/components/ui/toast/use-toast'
+     import { useToast } from '@/components/ui/toast/use-toast'
      import { Button } from './ui/button';
      import { Input } from './ui/input';
      import { Label } from './ui/label';
      import { cn } from '@/lib/utils';
      import authService from '@/services/authService';
 
-     // const { toast } = useToast();
+     const { toast } = useToast();
 
      const router = useRouter();
 
@@ -29,10 +29,14 @@
                     name: name.value,
                     email: email.value,
                     password: password.value,
-                    avatar: 'https://avatars.githubusercontent.com/u/111369356?v=4',
                };
 
                await authService.register(userInfo);
+
+               toast({
+                    title: `${localStorage.getItem("name")} - Автентифікація успішна 🎉`,
+                    description: "Щиро вітаю! Ви успішно пройшли автентифікацію та отримали доступ до свого облікового запису. Насолоджуйтесь вивченням нашої платформи!",
+               });
 
                router.push("/");
 
@@ -56,7 +60,7 @@
                          <Input
                               v-model="name"
                               id="name"
-                              placeholder="Your name"
+                              placeholder="Ваше ім'я"
                               type="text"
                               auto-capitalize="none"
                               autocomplete="given-name"
@@ -67,7 +71,7 @@
                          <Input
                               v-model="email"
                               id="email"
-                              placeholder="Your email"
+                              placeholder="Ваша Ел.пошта"
                               type="email"
                               auto-capitalize="none"
                               auto-complete="email"
@@ -78,7 +82,7 @@
                          <Input
                               v-model="password"
                               id="password"
-                              placeholder="Your password"
+                              placeholder="Ваш пароль"
                               type="password"
                               auto-capitalize="none"
                               auto-correct="off"
@@ -92,7 +96,8 @@
                          <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" v-if="isLoading" class="mr-2 h-4 w-4 animate-spin">
                               <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 1 1-6.219-8.56"></path>
                          </svg>
-                         Sign In with Email
+
+                         Увійдіть за допомогою ел.пошти
                     </Button>
                </div>
           </form>
@@ -103,7 +108,7 @@
                </div>
                <div class="relative flex justify-center text-xs uppercase">
                     <span class="bg-background px-2 text-muted-foreground">
-                    Or continue with
+                         АБО ПРОДОВЖИТИ З
                     </span>
                </div>
           </div>

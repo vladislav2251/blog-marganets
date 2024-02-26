@@ -83,7 +83,7 @@
 <template>
      <nav :class="cn('flex items-center space-x-4 lg:space-x-6', $attrs.class ?? '')">
           <router-link to="/">
-               <img class="rounded-[10px]" width="25" height="25" src="/img/marganets-lichey-logo.png" alt="logo">
+               <img class="rounded-[10px]" width="25" height="25" src="/img/branding-school.png" alt="logo">
           </router-link>
           <NavigationMenu>
                <NavigationMenuList>

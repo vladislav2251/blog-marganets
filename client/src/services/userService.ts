@@ -33,20 +33,14 @@ export default {
      },
 
      async getMeAccount() {
-          try { 
+          const token = document.cookie;
 
-               const token = localStorage.getItem("auth_token");
+          const response = await HTTP.get("/me", {
+               headers: {
+                    Authorization: `Bearer ${token}`,
+               },
+          });
 
-               const response = await HTTP.get("/me", {
-                    headers: {
-                         Authorization: `Bearer ${token}`,
-                    },
-               });
-
-               return response.data;
-
-          } catch (err) {
-               throw err;
-          };
+          return response.data;
      },
 };

@@ -1,10 +1,10 @@
 <template>
-     <section class="space-y-20 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
+     <section class="container space-y-20 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
 
-          <div class="container flex flex-col items-center gap-4 text-center">
-               <a href="/" class="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium">
+          <div class="flex flex-col items-center gap-4 text-center">
+               <a href="https://www.facebook.com/desjatka1/" class="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium">
                     <font style="vertical-align: inherit;">
-                         <font style="vertical-align: inherit;">Стежте за новинами у Твіттері</font>
+                         <font style="vertical-align: inherit;">Стежте за новинами у Facebook</font>
                     </font>
                </a>
 
@@ -13,78 +13,58 @@
 
           </div>
 
-          <div class="grid mt-20 container grid-cols-2 md:grid-cols-4 gap-4">
-               <div class="grid gap-4">
-                    <div>
-                         <img class="h-full max-w-full rounded-lg" src="/img/9.jpg" alt="">
-                    </div>
-                    <div>
-                         <img class="h-full max-w-full rounded-lg" src="/img/7.jpeg" alt="">
-                    </div>
-                    <div>
-                         <img class="h-full max-w-full rounded-lg" src="/img/8.jpeg" alt="">
+          <div class="grid gap-10">
+               <div class="grid gap-4 grid-cols-2">
+                    <div class="rounded-lg">
+                         <img loading="lazy" class="rounded-lg w-full h-auto" src="/img/nobel-prize-2024.jpg" alt="nobel-prize">
+                    </div> 
+
+                    <div class="flex items-center text-center justify-center px-20">
+                         <h2 class="font-bold text-[23px]">Нобелівські лекції з фізики 2023</h2>
                     </div>
                </div>
-               <div class="grid gap-4">
-                    <div>
-                         <img class="h-full max-w-full object-cover rounded-lg" src="/img/4.jpg" alt="">
+
+               <div class="grid gap-4 grid-cols-2">
+                    <div class="flex items-center text-center justify-center px-20">
+                         <h2 class="font-bold text-[23px]">НВК «Ліцей- СЗШ №10». Міжнародний день рідної мови 2022.</h2>
                     </div>
-                    <div>
-                         <img class="h-full max-w-full object-cover rounded-lg" src="/img/6.jpeg" alt="">
-                    </div>
-                    <div>
-                         <img class="h-full max-w-full object-cover rounded-lg" src="/img/3.jpg" alt="">
-                    </div>
+
+                    <div class="rounded-lg">
+                         <img loading="lazy" class="rounded-lg w-full h-auto" src="/img/den-ridnoy-movi.jpg" alt="nobel-prize">
+                    </div> 
                </div>
-               <div class="grid gap-4">
-                    <div>
-                         <img class="h-full max-w-full object-cover rounded-lg" src="/img/2.jpg" alt="">
-                    </div>
-                    <div>
-                         <img class="h-full max-w-full object-cover rounded-lg" src="/img/7.jpeg" alt="">
-                    </div>
-                    <div>
-                         <img class="h-full max-w-full object-cover rounded-lg" src="/img/6.jpeg" alt="">
-                    </div>
-               </div>
-               <div class="grid gap-4">
-                    <div>
-                         <img class="h-full max-w-full object-cover rounded-lg" src="/img/7.jpeg" alt="">
-                    </div>
-                    <div>
-                         <img class="h-full max-w-full object-cover rounded-lg" src="/img/6.jpeg" alt="">
-                    </div>
-                    <div>
-                         <img class="h-full max-w-full object-cover rounded-lg" src="/img/7.jpeg" alt="">
+
+
+               <div class="grid gap-4 grid-cols-2">
+                    <div class="rounded-lg">
+                         <img loading="lazy" class="rounded-lg w-full h-auto" src="/img/den-sobornosty-ukraini.jpg" alt="nobel-prize">
+                    </div> 
+
+                    <div class="flex items-center text-center justify-center px-20">
+                         <h2 class="font-bold text-[23px]">День Соборності 2022</h2>
                     </div>
                </div>
           </div>
 
           <div>
-               <div class="container">
-                    <h2 class="font-heading text-3xl mb-10 font-black sm:text-3xl md:text-4xl text-center lg:text5xl">Міністерство освіти</h2>
+               <h2 class="font-heading text-3xl mb-10 font-black sm:text-3xl md:text-4xl text-center lg:text5xl">Міністерство освіти</h2>
 
-                    <div class="grid grid-cols-2 gap-4">
-                         <div class="relative overflow-hidden rounded-lg project-container">
-                              <img class="w-full h-auto transition-transform transform" src="/img/ministerstvo-osviti-nauki-ukrain.png" alt="photo">
-                              <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 hover:opacity-100">
-                                   <h3 class="text-xl font-bold">Міністерство освіти і науки України</h3>
-                              </div>
+               <div class="grid grid-cols-2 gap-4">
+                    <router-link to="/" class="relative overflow-hidden rounded-lg project-container">
+                         <img class="w-full h-auto transition-transform transform" src="/img/ministerstvo-osviti-nauki-ukrain.jpg" alt="photo">
+                         <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 hover:opacity-100">
+                              <h3 class="text-xl font-bold">Міністерство освіти і науки України</h3>
                          </div>
+                    </router-link>
 
-                         <div class="relative overflow-hidden rounded-lg project-container">
-                              <img class="w-full h-auto transition-transform transform" src="/img/unnamed.jpg" alt="">
-                              <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 hover:opacity-100">
-                                   <h3 class="text-xl font-bold">Інститут модернізації змісту освіти</h3>
-                              </div>
+                    <router-link to="/" class="relative overflow-hidden rounded-lg project-container">
+                         <img class="w-full h-auto transition-transform transform" src="/img/imzo.jpg" alt="">
+                         <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 hover:opacity-100">
+                              <h3 class="text-xl font-bold">Інститут модернізації змісту освіти</h3>
                          </div>
-                    </div>
+                    </router-link>
                </div>
           </div>
 
      </section>
 </template>
-
-<script setup lang="ts">
-
-</script>

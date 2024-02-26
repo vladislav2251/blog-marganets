@@ -7,24 +7,29 @@ const crypto = require("crypto");
 const cloudinary = require("cloudinary");
 
 const createUser = asyncHandler(async (req, res, next) => {
-     const { name, email, password } = req.body;
+     const { name, email, password, avatar } = req.body;
 
      try {
 
-          const myCloud = await cloudinary.v2.uploader.upload(req?.body?.avatar, {
-               folder: "avatars",
-               width: 150,
-               crop: "scale",
-          });
-     
+          let avatarData = null;
+
+          if (avatar) {
+               const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+                    folder: "avatars",
+                    width: 150,
+                    crop: "scale",
+               });
+               avatarData = {
+                    public_id: myCloud.public_id,
+                    url: myCloud.secure_url,
+               };
+          };
+
           const user = await User.create({
                name,
                email,
                password,
-               avatar: {
-                    public_id: myCloud.public_id,
-                    url: myCloud.secure_url,
-               },
+               avatar: avatarData,
           });
      
           sendToken(user, 201, res);
@@ -174,15 +179,15 @@ const getSingleUser = asyncHandler(async (req, res, next) => {
 });
 
 const logoutUser = asyncHandler(async (req, res, next) => {
-      res.cookie("token", null, {
-          expires: new Date(Date.now()),
+     res.cookie('token', 'expiredtoken', {
+          expires: new Date(Date.now() - 10 * 1000),
           httpOnly: true,
-     });
-
-     res.status(200).json({
+      });
+  
+      res.status(200).json({
           success: true,
-          message: "Logged Out",
-     });
+          message: 'User logged out successfully',
+      });
 });
 
 const updateProfile = asyncHandler(async (req, res, next) => {

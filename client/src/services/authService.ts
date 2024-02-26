@@ -19,7 +19,7 @@ export default {
 			const response = await HTTP.post("/api/v2/register", user);
 
 			localStorage.setItem('role', response.data.user.role);
-			authStore.register(response.data.token, response.data.user.role, response.data.user.avatar.url);
+			authStore.register(response.data.user.role, response.data.user.avatar, response.data.user.name);
 
 		} catch (err) {
 			throw err;
@@ -32,7 +32,7 @@ export default {
 			const authStore = useAuthStore();
 			const response = await HTTP.post("/api/v2/login", user);
 
-			authStore.login(response.data.token, response.data.user.role, response.data.user.avatar.url);
+			authStore.login(response.data.user.role, response.data.user.avatar, response.data.user.name);
 
 		} catch (err) {
 			throw err;
@@ -47,5 +47,18 @@ export default {
 		} catch (error) {
 			console.error("Error during Google login:", error);
 		}
+	},
+
+	async signOut() {
+		try {
+
+			const response = HTTP.get("/api/v2/logout");
+			localStorage.clear();
+
+			return (await response).data
+
+		} catch (err) {
+			throw err;
+		};
 	},
 };

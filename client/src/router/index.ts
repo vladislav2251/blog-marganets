@@ -3,9 +3,11 @@ import Index from '@/views/Index.vue';
 import Contacts from '@/views/Contacts.vue';
 import Blogs from '@/views/Blogs.vue';
 import Blog from '@/views/Blog.vue';
+import Profile from '@/views/Profile.vue'
 
 import SignUp from '@/views/SignUp.vue';
 import SignIn from '@/views/SignIn.vue';
+
 
 const routes: Array<RouteRecordRaw> = [
      { path: "/", name: "Index", component: Index, meta: { title: "Марганецький ліцей № 10" } },
@@ -14,6 +16,7 @@ const routes: Array<RouteRecordRaw> = [
      { path: "/category/news", name: "Blogs", component: Blogs, meta: { title: "Марганецький ліцей № 10 Новини", } },
      { path: "/category/news/detail/:id", name: "Blog", component: Blog, meta: { title: "Марганецький ліцей № 10 Новини детально", } },
      { path: "/contacts", name: "Contacts", component: Contacts , meta: { title: "Марганецький ліцей № 10 Контакти" } },
+     { path: "/profile", name: "Profile", component: Profile , meta: { title: "Марганецький ліцей № 10 Профиль" } },
 ];
 
 const router = createRouter({

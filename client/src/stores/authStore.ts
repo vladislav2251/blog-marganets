@@ -2,21 +2,21 @@ import { defineStore } from 'pinia';
 
 export const useAuthStore = defineStore('authStore', {
      state: () => ({
-          token: null as string | null,
           role: null as string | null,
           avatar: null as string | null,
+          name: null as string | null,
      }),
 
      actions: {
-          async register(token: string, role: string, avatar: string) {
+          async register(role: string, avatar: string, name: string) {
                try {
                     console.log(role);
                     
-                    this.token = token;
+                    this.name = name;
                     this.role = role;
                     this.avatar = avatar;
 
-                    localStorage.setItem('auth_token', this.token);
+                    localStorage.setItem('name', this.name);
                     localStorage.setItem('role', this.role);
                     localStorage.setItem('avatar', this.avatar);
 
@@ -25,28 +25,28 @@ export const useAuthStore = defineStore('authStore', {
                };
           },
 
-          async login(token: string, role: string, avatar: string) {
+          async login(role: string, avatar: string, name: string) {
                try {
-                    this.token = token;
+
+                    this.name = name;
                     this.role = role;
                     this.avatar = avatar;
 
-                    localStorage.setItem('auth_token', this.token);
+                    localStorage.setItem('name', this.name);
                     localStorage.setItem('role', this.role);
                     localStorage.setItem('avatar', this.avatar);
+                    
                } catch (err) {
                     console.log(err);
                };
           },
 
-          async googleSignIn(token: string, role: string, avatar: string) {
+          async googleSignIn(role: string, avatar: string) {
                try {
 
-                    this.token = token;
                     this.role = role;
                     this.avatar = avatar;
 
-                    localStorage.setItem('auth_token', this.token);
                     localStorage.setItem('role', this.role);
                     localStorage.setItem('avatar', this.avatar);
 
@@ -57,13 +57,14 @@ export const useAuthStore = defineStore('authStore', {
 
           async signOut() {
 
-               this.token = null;
                this.role = null;
                this.avatar = null;
 
-               localStorage.removeItem('auth_token');
+               localStorage.removeItem('name');
                localStorage.removeItem('role');
                localStorage.removeItem('avatar');
+
           },
+
      }
 });

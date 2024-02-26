@@ -44,12 +44,6 @@ let blogSchema = new mongoose.Schema({
           postedby: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
      }],
 
-     author: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-          required: [true, "Author is required"],
-     },
-
 }, { toJSON: { virtuals: true }, toObject: { virtuals: true }, timestamps: true });
 
 //Export the model
